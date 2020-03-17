@@ -12,11 +12,16 @@ def build_metric():
         Metric: A populated Metric instance.
     """
 
-    protobuf_metric = metric_pb2.Metric()
-    protobuf_metric.name = 'sys.cpu'
-    protobuf_metric.type = 'gauge'
-    protobuf_metric.value = 99.9
-    protobuf_metric.tags.extend(['my_tag', 'foo:bar'])
+    protobuf_metric = metric_pb2.TestMessage()
+    protobuf_metric.length = 10
+    protobuf_metric.dst = "Chandler Bing"
+    protobuf_metric.src = "Joey Tribbiany"
+    protobuf_metric.transid = 1337
+
+    protobuf_metric.request.authToken = 'Friends'
+    protobuf_metric.request.subscribe.unsubscribe = 0
+
+    protobuf_metric.notfound = 'True'
 
     return protobuf_metric
 
