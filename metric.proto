@@ -1,15 +1,15 @@
-syntax = "proto2";
+syntax = "proto3";
 
 message TestMessage {
 
-    required fixed32    length      = 1;
-    required string     dst          = 2;
-    required string     src        = 3;
-    required uint64     transid     = 4; // same for request+response
+     fixed32    length      = 1;
+     string     dst          = 2;
+     string     src        = 3;
+     uint64     transid     = 4; // same for request+response
                                          // reserve 0 for malformed messages
 
     message Request {
-        optional string authToken                           = 1;
+         string authToken                           = 1;
 
         oneof type {
             Hello                      hello                = 2;
@@ -20,6 +20,7 @@ message TestMessage {
     message Response {
 
         enum Code {
+            UNKNOWN     =   0;
             OK          = 200;
             BAD_REQUEST = 400;
             FORBIDDEN   = 403;
@@ -27,7 +28,7 @@ message TestMessage {
             ERROR       = 500;
         }
 
-        required Code code                                  = 1;
+         Code code                                  = 1;
 
         oneof type {
             Hello                       hello               = 2;
@@ -43,14 +44,14 @@ message TestMessage {
         //   Use a request to subscribe
     }
 
-    required string notfound = 7;
+     string notfound = 7;
 }
 
 /* empty message */
 message Hello {
-    required int32 foo = 1;
+     int32 foo = 1;
 }
 
 message Subscribe {
-    optional bool unsubscribe = 1 [default = false];
+     bool unsubscribe = 1;
 }
