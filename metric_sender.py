@@ -6,10 +6,10 @@ LO = '127.0.0.1'
 PORT = 12435
 
 def build_metric():
-    """Builds a metric by protobuf
+    """Builds a metric with protobuf.
 
     Returns:
-        Metric: Pythonic handler of the metric
+        Metric: A populated Metric instance.
     """
 
     protobuf_metric = metric_pb2.Metric()
