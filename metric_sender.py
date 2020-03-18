@@ -21,7 +21,7 @@ def build_metric():
     protobuf_metric.request.authToken = 'Friends'
     protobuf_metric.request.subscribe.unsubscribe = 0
 
-    protobuf_metric.notfound = 'True'
+    protobuf_metric.dict['episodes'].foo = 10
 
     return protobuf_metric
 

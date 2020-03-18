@@ -44,7 +44,7 @@ message TestMessage {
         //   Use a request to subscribe
     }
 
-     string notfound = 7;
+     map<string, Hello> dict = 7;
 }
 
 /* empty message */
